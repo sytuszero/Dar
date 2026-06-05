@@ -54,7 +54,7 @@ body {
 .container {
     width: 90%;
     max-width: 400px;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -415,10 +415,6 @@ body {
     transition: var(--transition);
     cursor: pointer;
     flex-shrink: 0;
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
 }
 
 .brand-logo {
@@ -428,10 +424,6 @@ body {
     opacity: 0.8;
     mix-blend-mode: multiply;
     transition: var(--transition);
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
 }
 
 .brand-item:hover .brand-logo {
