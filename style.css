@@ -128,6 +128,8 @@ body {
     box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
     position: relative;
     background: #000;
+    transform: translateZ(0);
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
     animation: 
         logoIntroSpin 3s cubic-bezier(0.19, 1, 0.22, 1) forwards,
         logoGlow 4s ease-in-out 3s infinite;
@@ -400,6 +402,10 @@ body {
     align-items: center;
     width: max-content;
     will-change: transform;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     animation: scroll 11s linear infinite;
 }
 

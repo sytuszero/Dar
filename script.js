@@ -1,8 +1,6 @@
-document.addEventListener('DOMContentLoaded', () => {
+(function() {
     const logoContainer = document.querySelector('.logo-container');
     const logo = document.querySelector('#main-logo');
-
-    // Logo hover animation removed per user request
 
     // Add staggered animation to links
     const links = document.querySelectorAll('.social-link');
@@ -41,4 +39,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 50);
         }, 3500);
     }
-});
+})();
