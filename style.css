@@ -316,8 +316,8 @@ body {
     background: #FFFFFF;
     padding: 0.8rem 0;
     border-radius: 8px;
-    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 30%, black 70%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 30%, black 70%, transparent);
 }
 
 .carousel-track {
