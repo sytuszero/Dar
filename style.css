@@ -326,7 +326,7 @@ body {
     align-items: center;
     width: max-content;
     will-change: transform;
-    animation: scroll 15s linear infinite;
+    animation: scroll 11s linear infinite;
 }
 
 .carousel-track:hover {
@@ -371,6 +371,14 @@ body {
 
 .large-logo {
     transform: scale(1.3);
+}
+
+.brand-item:hover .xl-logo {
+    transform: scale(1.8);
+}
+
+.xl-logo {
+    transform: scale(1.6);
 }
 
 @keyframes scroll {
@@ -424,6 +432,9 @@ body {
     }
     .brands-section {
         margin-top: 1.5rem;
+    }
+    .carousel-track {
+        animation: scroll 15s linear infinite;
     }
     .brand-logo {
         height: 40px;
