@@ -352,6 +352,7 @@ body {
     width: auto;
     object-fit: contain;
     opacity: 0.8;
+    mix-blend-mode: multiply;
     transition: var(--transition);
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
