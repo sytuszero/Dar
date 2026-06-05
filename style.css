@@ -316,8 +316,27 @@ body {
     background: #FFFFFF;
     padding: 0.8rem 0;
     border-radius: 8px;
-    mask-image: linear-gradient(to right, transparent, black 30%, black 70%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 30%, black 70%, transparent);
+}
+
+.carousel-container::before,
+.carousel-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 80px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.carousel-container::before {
+    left: 0;
+    background: linear-gradient(to right, #FFFFFF, transparent);
+}
+
+.carousel-container::after {
+    right: 0;
+    background: linear-gradient(to left, #FFFFFF, transparent);
 }
 
 .carousel-track {
