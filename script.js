@@ -15,4 +15,30 @@ document.addEventListener('DOMContentLoaded', () => {
             link.style.transform = 'translateY(0)';
         }, 400 + (index * 200));
     });
+
+    // Showcase Slideshow Logic
+    const slides = document.querySelectorAll('.slide');
+    const container = document.querySelector('.slideshow-container');
+    const animations = ['anim-slide-x', 'anim-slide-y', 'anim-zoom', 'anim-flip'];
+    
+    if (slides.length > 0) {
+        let currentSlide = 0;
+        setInterval(() => {
+            const prevSlide = currentSlide;
+            currentSlide = (currentSlide + 1) % slides.length;
+            
+            const randomAnim = animations[Math.floor(Math.random() * animations.length)];
+            container.classList.remove(...animations);
+            container.classList.add(randomAnim);
+            
+            slides[prevSlide].classList.remove('active');
+            slides[prevSlide].classList.add('exit');
+            
+            slides[currentSlide].classList.remove('exit');
+            
+            setTimeout(() => {
+                slides[currentSlide].classList.add('active');
+            }, 50);
+        }, 3500);
+    }
 });
