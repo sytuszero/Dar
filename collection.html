@@ -71,7 +71,8 @@
             height: 100%;
             object-fit: contain;
             filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
-            transition: var(--transition);
+            transition: opacity 0.8s ease-in-out, transform 0.3s ease;
+            opacity: 0;
         }
         .gallery-item:hover .gallery-img {
             transform: scale(1.1);
@@ -96,27 +97,57 @@
         </div>
 
         <div class="gallery-grid">
-            <div class="gallery-item"><img src="images/1.png" class="gallery-img" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/2.png" class="gallery-img" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/3.png" class="gallery-img" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/4.png" class="gallery-img" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/5.png" class="gallery-img" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/6.png" class="gallery-img" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/7.png" class="gallery-img" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/8.png" class="gallery-img" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/9.png" class="gallery-img" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/10.png" class="gallery-img" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/11.png" class="gallery-img" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/12.png" class="gallery-img" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/13.png" class="gallery-img" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/14.png" class="gallery-img" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/15.png" class="gallery-img" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/16.png" class="gallery-img" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/18.png" class="gallery-img" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/19.png" class="gallery-img" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/20.png" class="gallery-img" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/21.png" class="gallery-img" loading="lazy"></div>
+            <div class="gallery-item"><img data-src="images/1.png" class="gallery-img lazy-img" alt="Luxury Item"></div>
+            <div class="gallery-item"><img data-src="images/2.png" class="gallery-img lazy-img" alt="Luxury Item"></div>
+            <div class="gallery-item"><img data-src="images/3.png" class="gallery-img lazy-img" alt="Luxury Item"></div>
+            <div class="gallery-item"><img data-src="images/4.png" class="gallery-img lazy-img" alt="Luxury Item"></div>
+            <div class="gallery-item"><img data-src="images/5.png" class="gallery-img lazy-img" alt="Luxury Item"></div>
+            <div class="gallery-item"><img data-src="images/6.png" class="gallery-img lazy-img" alt="Luxury Item"></div>
+            <div class="gallery-item"><img data-src="images/7.png" class="gallery-img lazy-img" alt="Luxury Item"></div>
+            <div class="gallery-item"><img data-src="images/8.png" class="gallery-img lazy-img" alt="Luxury Item"></div>
+            <div class="gallery-item"><img data-src="images/9.png" class="gallery-img lazy-img" alt="Luxury Item"></div>
+            <div class="gallery-item"><img data-src="images/10.png" class="gallery-img lazy-img" alt="Luxury Item"></div>
+            <div class="gallery-item"><img data-src="images/11.png" class="gallery-img lazy-img" alt="Luxury Item"></div>
+            <div class="gallery-item"><img data-src="images/12.png" class="gallery-img lazy-img" alt="Luxury Item"></div>
+            <div class="gallery-item"><img data-src="images/13.png" class="gallery-img lazy-img" alt="Luxury Item"></div>
+            <div class="gallery-item"><img data-src="images/14.png" class="gallery-img lazy-img" alt="Luxury Item"></div>
+            <div class="gallery-item"><img data-src="images/15.png" class="gallery-img lazy-img" alt="Luxury Item"></div>
+            <div class="gallery-item"><img data-src="images/16.png" class="gallery-img lazy-img" alt="Luxury Item"></div>
+            <div class="gallery-item"><img data-src="images/18.png" class="gallery-img lazy-img" alt="Luxury Item"></div>
+            <div class="gallery-item"><img data-src="images/19.png" class="gallery-img lazy-img" alt="Luxury Item"></div>
+            <div class="gallery-item"><img data-src="images/20.png" class="gallery-img lazy-img" alt="Luxury Item"></div>
+            <div class="gallery-item"><img data-src="images/21.png" class="gallery-img lazy-img" alt="Luxury Item"></div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const lazyImages = document.querySelectorAll("img.lazy-img");
+
+            if ("IntersectionObserver" in window) {
+                const lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            const lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.onload = () => {
+                                lazyImage.style.opacity = 1;
+                            };
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                }, { rootMargin: "0px 0px 300px 0px" });
+
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            } else {
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImage.src = lazyImage.dataset.src;
+                    lazyImage.style.opacity = 1;
+                });
+            }
+        });
+    </script>
 </body>
 </html>
