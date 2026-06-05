@@ -326,7 +326,7 @@ body {
     align-items: center;
     width: max-content;
     will-change: transform;
-    animation: scroll 25s linear infinite;
+    animation: scroll 15s linear infinite;
 }
 
 .carousel-track:hover {
