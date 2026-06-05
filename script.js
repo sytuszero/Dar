@@ -1,8 +1,7 @@
-(function() {
-    const logoContainer = document.querySelector('.logo-container');
-    const logo = document.querySelector('#main-logo');
+const logoContainer = document.querySelector('.logo-container');
+const logo = document.querySelector('#main-logo');
 
-    // Add staggered animation to links
+// Add staggered animation to links
     const links = document.querySelectorAll('.social-link');
     links.forEach((link, index) => {
         link.style.opacity = '0';
@@ -39,4 +38,3 @@
             }, 50);
         }, 3500);
     }
-})();
