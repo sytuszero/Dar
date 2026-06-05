@@ -322,8 +322,10 @@ body {
 
 .carousel-track {
     display: flex;
+    flex-wrap: nowrap;
     align-items: center;
     width: max-content;
+    will-change: transform;
     animation: scroll 25s linear infinite;
 }
 
@@ -338,6 +340,7 @@ body {
     justify-content: center;
     transition: var(--transition);
     cursor: pointer;
+    flex-shrink: 0;
 }
 
 .brand-logo {
@@ -352,6 +355,14 @@ body {
     opacity: 1;
     transform: scale(1.1);
     filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.15));
+}
+
+.brand-item:hover .large-logo {
+    transform: scale(1.4);
+}
+
+.large-logo {
+    transform: scale(1.3);
 }
 
 @keyframes scroll {
