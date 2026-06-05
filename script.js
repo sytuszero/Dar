@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             currentSlide = (currentSlide + 1) % slides.length;
             
             const randomAnim = animations[Math.floor(Math.random() * animations.length)];
-            container.classList.remove(...animations);
+            animations.forEach(anim => container.classList.remove(anim));
             container.classList.add(randomAnim);
             
             slides[prevSlide].classList.remove('active');

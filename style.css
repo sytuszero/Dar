@@ -310,7 +310,12 @@ body {
     object-fit: contain;
     opacity: 0;
     transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease;
+    -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease;
     filter: drop-shadow(0 10px 20px rgba(0,0,0,0.6));
+    -webkit-filter: drop-shadow(0 10px 20px rgba(0,0,0,0.6));
+    will-change: transform, opacity;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .slideshow-container .slide.active {
