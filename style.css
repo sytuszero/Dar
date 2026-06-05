@@ -316,8 +316,6 @@ body {
     background: #FFFFFF;
     padding: 0.8rem 0;
     border-radius: 8px;
-    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
 
 .carousel-track {
@@ -356,7 +354,7 @@ body {
 
 @keyframes scroll {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    100% { transform: translateX(-33.333333%); }
 }
 
 /* RTL Specific adjustments */
